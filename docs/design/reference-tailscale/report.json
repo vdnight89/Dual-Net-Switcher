@@ -1,0 +1,95 @@
+[
+  {
+    "file": "page.png",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [
+      "加载错误：Framing 'https://www.youtube.com/' violates the following report-only Content Security Policy directive: \"default-src 'self' wwwv2.tailscale.com\". The violation has been logged, but no further action  https://tailscale.com/docs/features/subnet-routers",
+      "加载错误：Framing 'https://www.youtube.com/' violates the following report-only Content Security Policy directive: \"default-src 'self' wwwv2.tailscale.com\". The violation has been logged, but no further action  https://tailscale.com/docs/features/subnet-routers",
+      "加载错误：Failed to load resource: the server responded with a status of 403 () https://login.tailscale.com/admin/api/self/external",
+      "加载错误：Failed to load resource: the server responded with a status of 403 () https://login.tailscale.com/admin/api/self/external",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/business-vpn. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (ht",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/static/chunks/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/2lqx-p2kruboa.js.undefined.js",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/static/chunks/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/0ikke59ml0_1y.js.undefined.js",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/static/chunks/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/0xeagzc_0ehx3.js.undefined.js",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/45afoyct57ttq.js",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/1qf17e30ul7s0.js",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/1ua9_ig8ypkbr.js",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/. Falling back to browser navigation. ChunkLoadError: Loading chunk https://wwwv2.tailscale.com/_next/static/immutable/chunks/0xeagzc_0ehx3.js fai",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/33c42pxr69sse.js",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/pam. Falling back to browser navigation. ChunkLoadError: Loading chunk https://wwwv2.tailscale.com/_next/static/immutable/chunks/0xeagzc",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/ci-cd. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (https://t",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/securing-ai. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (htt",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/edge-iot. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (https:",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/workload-connectivity. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n   ",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/cloud-connectivity. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/homelab. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (https:/",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://proxy.kapa.ai/",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/zero-trust-networking. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n   ",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/infrastructure-access. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n   ",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/remote-access. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (h",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/kubernetes. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (http",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/secure-ai-agent-connectivity. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymou",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/use-cases/secure-saas. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (htt",
+      "加载错误：Access to fetch at 'https://discover.tailscale.com/B7vWQ23zF?_rsc=1iuvd' (redirected from 'https://tailscale.com/bring-tailscale-to-work?_rsc=1iuvd') from origin 'https://tailscale.com' has been block https://tailscale.com/docs/features/subnet-routers",
+      "加载错误：Failed to load resource: net::ERR_FAILED https://discover.tailscale.com/B7vWQ23zF?_rsc=1iuvd",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/bring-tailscale-to-work. Falling back to browser navigation. TypeError: Failed to fetch\n    at f (https://tailscale.com/_next/static/chunks/52117-",
+      "加载错误：Framing 'https://www.google.com/' violates the following report-only Content Security Policy directive: \"default-src 'self' wwwv2.tailscale.com\". The violation has been logged, but no further action h https://www.gstatic.com/",
+      "加载错误：Failed to load resource: net::ERR_CONNECTION_CLOSED https://ad.doubleclick.net/ccm/s/collect?auid=1741007392.1792460242&gtm=45He6ag1v9191813109za200zd9191813109xeaxf1&fmt=8",
+      "加载错误：Failed to load resource: net::ERR_CONNECTION_CLOSED https://stats.g.doubleclick.net/g/collect?v=2&tid=G-JY69R9X5MQ&cid=408666413.1792460242&gtm=45je6aj0h2v888405599za208zd888405599xf1&rcb=10&aip=1&dma=0&gcd=13l3l3l3l1l1&npa=0&frm=0&tag_exp=115616986~115938466~115938468~118897920~118897930~119404697~119860443~120213116~120385422~120469145~120469153~121246026~121246034",
+      "加载错误：Framing 'https://www.google.com/' violates the following report-only Content Security Policy directive: \"default-src 'self' wwwv2.tailscale.com\". The violation has been logged, but no further action h https://www.gstatic.com/",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/events. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (https://tailscale.",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/webinars. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (https://tailscal",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/about-community. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (https://t",
+      "加载错误：Failed to load resource: net::ERR_CONNECTION_CLOSED https://ad.doubleclick.net/ccm/s/collect?auid=1741007392.1792460242&gtm=45He6ag1v9191813109za200zd9191813109xeaxf1&fmt=3",
+      "加载错误：Failed to load resource: net::ERR_CONNECTION_CLOSED https://stats.g.doubleclick.net/g/collect?v=2&tid=G-2Y71E8DXGE&cid=408666413.1792460242&gtm=45be6ag1v898994407za20ozb9191813109zd9191813109xf1&rcb=3&aip=1&dma=0&gcd=13l3l3l3l1l1&npa=0&frm=0&tag_exp=115938466~115938468~118897920~118897930~119860443~120213116~120385422~120469145~120469153~121246026~121246034",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/tailscaleup. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (https://tails",
+      "控制台错误：Failed to fetch RSC payload for https://tailscale.com/partnerships/directory. Falling back to browser navigation. SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at w (ht",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/static/chunks/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/23r04a8vt61to.js.undefined.js",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/1qf17e30ul7s0.js",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/static/chunks/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/33c42pxr69sse.js.undefined.js",
+      "加载错误：Failed to load resource: the server responded with a status of 404 () https://tailscale.com/_next/static/chunks/https:/wwwv2.tailscale.com/_next/static/immutable/chunks/2r820r6cl1hk5.js.undefined.js",
+      "图片没加载出来：https://bat.bing.com/action/0?ti=17188063&Ver=2&mid=89948abe-ec0e-42d4-83ee-7ff8fb75e025&bo=1&sid=cc068a90cc2611f1906663"
+    ],
+    "lint": [
+      {
+        "rule": "longMeasure",
+        "label": "正文行太长",
+        "count": 60,
+        "examples": [
+          "p.ketch-text-inherit.ketch-m-0「Welcome! We’re glad you’」（每行约 141 个字符）",
+          "p「Subnet routers let you e」（每行约 100 个字符）",
+          "div.note.border-grey-200「The following related vi」（每行约 115 个字符）"
+        ]
+      },
+      {
+        "rule": "contrastLow",
+        "label": "文字对比度不达标（正文低于 4.5:1，大字低于 3:1）",
+        "count": 84,
+        "examples": [
+          "a.!font-medium.!text-[#3b82f6]「all plans」（3.68:1）",
+          "a「encryption」（3.68:1）",
+          "a「AWS VPCs」（3.68:1）"
+        ]
+      },
+      {
+        "rule": "tightLeading",
+        "label": "多行正文行高过紧",
+        "count": 1,
+        "examples": [
+          "div.note.border-grey-200「The following related vi」（1.20）"
+        ]
+      },
+      {
+        "rule": "stuck",
+        "label": "首屏有内容停在透明状态（出场动画没触发？）",
+        "count": 1,
+        "examples": [
+          "span「Scroll to top」"
+        ]
+      }
+    ]
+  }
+]

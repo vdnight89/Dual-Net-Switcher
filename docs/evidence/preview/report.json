@@ -1,0 +1,22 @@
+[
+  {
+    "file": "page.png",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "animationWaitMs": 93,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "longMeasure",
+        "label": "正文行太长",
+        "count": 13,
+        "examples": [
+          "p.preview-warning「分流范围为 IPv4。IPv6、代理以及使用独立」（每行约 51 字）",
+          "li.add「0.0.0.0/0 → 192.168.1.1 」（每行约 51 字）",
+          "li.add「10.0.0.0/8 → 10.20.0.1 ·」（每行约 51 字）"
+        ]
+      }
+    ]
+  }
+]

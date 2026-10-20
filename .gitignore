@@ -1,0 +1,12 @@
+data/
+logs/
+node_modules/
+*.tmp
+
+# 本机运行产物与内部留档，不进入仓库
+dist/
+backup/
+Handoff.md
+参考项目/
+Thumbs.db
+.DS_Store

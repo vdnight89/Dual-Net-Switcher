@@ -1,0 +1,84 @@
+[
+  {
+    "file": "page-1440x900.png",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "eyebrow",
+        "label": "标题上方的眉标",
+        "count": 1,
+        "examples": [
+          "p.eyebrow「YOUR NETWORK, YOUR WAY」"
+        ]
+      },
+      {
+        "rule": "englishLabel",
+        "label": "中文界面里的英文大写标签",
+        "count": 2,
+        "examples": [
+          "small「DUAL-NET SWITCHER」",
+          "p.eyebrow「YOUR NETWORK, YOUR WAY」"
+        ]
+      },
+      {
+        "rule": "contrastLow",
+        "label": "文字对比度不达标（正文低于 4.5:1，大字低于 3:1）",
+        "count": 37,
+        "examples": [
+          "small「DUAL-NET SWITCHER」（3.29:1）",
+          "button.tab「网络设置」（3.84:1）",
+          "button.tab「操作记录」（3.84:1）"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "page-390x844.png",
+    "state": null,
+    "size": "390x844",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "eyebrow",
+        "label": "标题上方的眉标",
+        "count": 1,
+        "examples": [
+          "p.eyebrow「YOUR NETWORK, YOUR WAY」"
+        ]
+      },
+      {
+        "rule": "englishLabel",
+        "label": "中文界面里的英文大写标签",
+        "count": 2,
+        "examples": [
+          "small「DUAL-NET SWITCHER」",
+          "p.eyebrow「YOUR NETWORK, YOUR WAY」"
+        ]
+      },
+      {
+        "rule": "contrastLow",
+        "label": "文字对比度不达标（正文低于 4.5:1，大字低于 3:1）",
+        "count": 37,
+        "examples": [
+          "small「DUAL-NET SWITCHER」（3.29:1）",
+          "button.tab「网络设置」（3.84:1）",
+          "button.tab「操作记录」（3.84:1）"
+        ]
+      },
+      {
+        "rule": "smallText",
+        "label": "正文小于 13px",
+        "count": 1,
+        "examples": [
+          "p.scope-note「分流作用于 IPv4 路由与系统 DNS。IPv」（10px）"
+        ]
+      }
+    ]
+  }
+]

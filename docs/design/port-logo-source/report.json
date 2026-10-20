@@ -1,0 +1,20 @@
+[
+  {
+    "file": "page.png",
+    "state": null,
+    "size": "800x180",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "lintError",
+        "label": "默认做法检查没跑完",
+        "count": 1,
+        "examples": [
+          "TypeError: canvas.getContext is not a function\n    at lintPage (<anonymous>:29:22)\n    at <anonymous>:308:3"
+        ]
+      }
+    ]
+  }
+]

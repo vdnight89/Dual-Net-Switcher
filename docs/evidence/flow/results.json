@@ -1,0 +1,56 @@
+[
+  {
+    "run": 1,
+    "status": "passed",
+    "checks": [
+      "load",
+      "fragment-cleared",
+      "save-failure-preserves-input",
+      "URL-normalization",
+      "reload-persistence",
+      "search",
+      "preview-readonly",
+      "apply",
+      "settings",
+      "export",
+      "reset-preserves-config",
+      "no-page-errors"
+    ]
+  },
+  {
+    "run": 2,
+    "status": "passed",
+    "checks": [
+      "load",
+      "fragment-cleared",
+      "save-failure-preserves-input",
+      "URL-normalization",
+      "reload-persistence",
+      "search",
+      "preview-readonly",
+      "apply",
+      "settings",
+      "export",
+      "reset-preserves-config",
+      "no-page-errors"
+    ]
+  },
+  {
+    "run": 3,
+    "status": "passed",
+    "checks": [
+      "load",
+      "fragment-cleared",
+      "save-failure-preserves-input",
+      "URL-normalization",
+      "reload-persistence",
+      "search",
+      "preview-readonly",
+      "apply",
+      "settings",
+      "export",
+      "reset-preserves-config",
+      "no-page-errors"
+    ]
+  }
+]

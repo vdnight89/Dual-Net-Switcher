@@ -1,0 +1,15 @@
+{
+  "measuredAt": "2026-10-20T02:02:47.870Z",
+  "scope": "Node management process only; browser and transient PowerShell excluded; real Windows read-only discovery",
+  "startupMs": 4314,
+  "memoryBytes": {
+    "rss": 58191872,
+    "heapTotal": 12419072,
+    "heapUsed": 7245944,
+    "external": 3822360,
+    "arrayBuffers": 68158
+  },
+  "adapters": 5,
+  "inactiveMaintenanceWakeMs": 1.96,
+  "inactiveMaintenanceSkipped": true
+}

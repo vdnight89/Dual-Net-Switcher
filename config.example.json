@@ -1,0 +1,18 @@
+{
+  "settings": {
+    "external_label": "主出口",
+    "internal_label": "专用出口",
+    "external_nic_name": "以太网 2",
+    "external_gateway": "",
+    "internal_nic_name": "WLAN",
+    "internal_gateway": "",
+    "internal_dns": "10.20.0.2",
+    "auto_sync_interval_mins": 10,
+    "auto_sync": true
+  },
+  "rules": [
+    { "id": "company-a", "type": "CIDR", "target": "10.0.0.0/8", "network": "internal", "remark": "按实际公司网段修改", "enabled": false },
+    { "id": "oa", "type": "Domain", "target": "http://oa.company-a.com:8080", "network": "internal", "remark": "按实际业务域名修改", "enabled": false },
+    { "id": "jump", "type": "SingleIP", "target": "192.168.1.100", "network": "external", "remark": "按实际跳板机修改", "enabled": false }
+  ]
+}

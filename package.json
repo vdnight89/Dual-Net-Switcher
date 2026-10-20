@@ -1,0 +1,16 @@
+{
+  "name": "dual-net-switcher",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Windows 双网卡分流管家，无构建、无第三方运行依赖",
+  "scripts": {
+    "start": "node server.mjs",
+    "demo": "node server.mjs --demo",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check server.mjs && node --check lib/model.mjs && node --check lib/manager.mjs && node --check lib/windows.mjs && node --check public/app.js && node --check public/theme-init.js && node --check scripts/verify-ui.mjs && node --check scripts/verify-theme.mjs",
+    "verify:ui": "node scripts/verify-ui.mjs",
+    "verify:theme": "node scripts/verify-theme.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

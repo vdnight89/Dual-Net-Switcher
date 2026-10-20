@@ -1,0 +1,184 @@
+TAP version 13
+# Subtest: saving and previewing never applies; save survives reopening; stale editor rejected
+ok 1 - saving and previewing never applies; save survives reopening; stale editor rejected
+  ---
+  duration_ms: 21.8165
+  type: 'test'
+  ...
+# Subtest: auto sync uses applied snapshot, never a newly saved draft
+ok 2 - auto sync uses applied snapshot, never a newly saved draft
+  ---
+  duration_ms: 30.4319
+  type: 'test'
+  ...
+# Subtest: DNS transient failure keeps last-good only for matching host/role/NIC/DNS identity
+ok 3 - DNS transient failure keeps last-good only for matching host/role/NIC/DNS identity
+  ---
+  duration_ms: 11.8156
+  type: 'test'
+  ...
+# Subtest: expired preview, config edits and topology changes prevent writes
+ok 4 - expired preview, config edits and topology changes prevent writes
+  ---
+  duration_ms: 7.1173
+  type: 'test'
+  ...
+# Subtest: reset idempotently clears managed resources but preserves saved rules
+ok 5 - reset idempotently clears managed resources but preserves saved rules
+  ---
+  duration_ms: 17.8271
+  type: 'test'
+  ...
+# Subtest: corrupt config fails closed rather than overwriting user data
+ok 6 - corrupt config fails closed rather than overwriting user data
+  ---
+  duration_ms: 6.3792
+  type: 'test'
+  ...
+# Subtest: interrupted reset persists suspension before OS writes; scheduled maintenance cannot reapply old policy
+ok 7 - interrupted reset persists suspension before OS writes; scheduled maintenance cannot reapply old policy
+  ---
+  duration_ms: 11.6515
+  type: 'test'
+  ...
+# Subtest: one-shot maintenance exits without an HTTP listener and skips when management process owns the lock
+ok 8 - one-shot maintenance exits without an HTTP listener and skips when management process owns the lock
+  ---
+  duration_ms: 20.5777
+  type: 'test'
+  ...
+# Subtest: CIDR normalizes host bits and rejects default / malformed prefixes
+ok 9 - CIDR normalizes host bits and rejects default / malformed prefixes
+  ---
+  duration_ms: 3.0198
+  type: 'test'
+  ...
+# Subtest: X and star shorthand normalize to contiguous CIDR, invalid holes and overbroad masks are rejected
+ok 10 - X and star shorthand normalize to contiguous CIDR, invalid holes and overbroad masks are rejected
+  ---
+  duration_ms: 1.8952
+  type: 'test'
+  ...
+# Subtest: paste-friendly URL and Markdown extraction uses IP or domain, ignoring port/path/query
+ok 11 - paste-friendly URL and Markdown extraction uses IP or domain, ignoring port/path/query
+  ---
+  duration_ms: 1.2804
+  type: 'test'
+  ...
+# Subtest: Domain URL extracts exact host, IDNA normalizes, untrusted schemes and wildcard are rejected
+ok 12 - Domain URL extracts exact host, IDNA normalizes, untrusted schemes and wildcard are rejected
+  ---
+  duration_ms: 0.4182
+  type: 'test'
+  ...
+# Subtest: config rejects duplicate IDs, invalid flags and contradictory /32 routes
+ok 13 - config rejects duplicate IDs, invalid flags and contradictory /32 routes
+  ---
+  duration_ms: 0.8619
+  type: 'test'
+  ...
+# Subtest: plan contains exact DNS policies, DNS paths, active domain and persistent static routes
+ok 14 - plan contains exact DNS policies, DNS paths, active domain and persistent static routes
+  ---
+  duration_ms: 2.4632
+  type: 'test'
+  ...
+# Subtest: shared IP requiring opposite exits blocks whole plan; same exit deduplicates
+ok 15 - shared IP requiring opposite exits blocks whole plan; same exit deduplicates
+  ---
+  duration_ms: 0.5393
+  type: 'test'
+  ...
+# Subtest: overlapping CIDRs preserve longest prefix semantics with visible warning
+ok 16 - overlapping CIDRs preserve longest prefix semantics with visible warning
+  ---
+  duration_ms: 0.4529
+  type: 'test'
+  ...
+# Subtest: borrows DHCP default, preserves owned persistent default, rejects a competing better exit
+ok 17 - borrows DHCP default, preserves owned persistent default, rejects a competing better exit
+  ---
+  duration_ms: 0.4723
+  type: 'test'
+  ...
+# Subtest: local API rejects missing token, hostile origin, rebinding host and non JSON body
+ok 18 - local API rejects missing token, hostile origin, rebinding host and non JSON body
+  ---
+  duration_ms: 61.572
+  type: 'test'
+  ...
+# Subtest: 退出管理结束独立服务进程并释放监听，不要求浏览器窗口关闭
+ok 19 - 退出管理结束独立服务进程并释放监听，不要求浏览器窗口关闭
+  ---
+  duration_ms: 468.7243
+  type: 'test'
+  ...
+# Subtest: 固定 action 和 JSON 参数，不拼接命令文本
+ok 20 - 固定 action 和 JSON 参数，不拼接命令文本
+  ---
+  duration_ms: 4.7179
+  type: 'test'
+  ...
+# Subtest: DNS 查询使用指定服务器、源地址和 TTL，失败明确可达性限制
+ok 21 - DNS 查询使用指定服务器、源地址和 TTL，失败明确可达性限制
+  ---
+  duration_ms: 0.6079
+  type: 'test'
+  ...
+# Subtest: 隐藏维护包装仅同步调用固定入口，Windows 5.1 语法有效
+ok 22 - 隐藏维护包装仅同步调用固定入口，Windows 5.1 语法有效
+  ---
+  duration_ms: 882.803
+  type: 'test'
+  ...
+# Subtest: PowerShell：借用已有路由，重复应用幂等，重置仅移除拥有资源
+ok 23 - PowerShell：借用已有路由，重复应用幂等，重置仅移除拥有资源
+  ---
+  duration_ms: 1464.8453
+  type: 'test'
+  ...
+# Subtest: PowerShell：失败补偿、崩溃日志恢复以及漂移保护
+ok 24 - PowerShell：失败补偿、崩溃日志恢复以及漂移保护
+  ---
+  duration_ms: 1189.4599
+  type: 'test'
+  ...
+# Subtest: PowerShell：提交窗口恢复和自动跃点原值恢复
+ok 25 - PowerShell：提交窗口恢复和自动跃点原值恢复
+  ---
+  duration_ms: 1190.2248
+  type: 'test'
+  ...
+# Subtest: PowerShell：持久路由的活动项副作用可回滚且不遗失原有活动路由
+ok 26 - PowerShell：持久路由的活动项副作用可回滚且不遗失原有活动路由
+  ---
+  duration_ms: 1201.4683
+  type: 'test'
+  ...
+# Subtest: PowerShell：登录任务拥有、重复设置、定义漂移和关闭保护
+ok 27 - PowerShell：登录任务拥有、重复设置、定义漂移和关闭保护
+  ---
+  duration_ms: 2071.5952
+  type: 'test'
+  ...
+# Subtest: PowerShell：NRPT 精确拥有、变更缓存失效及企业有效策略冲突
+ok 28 - PowerShell：NRPT 精确拥有、变更缓存失效及企业有效策略冲突
+  ---
+  duration_ms: 1297.2231
+  type: 'test'
+  ...
+# Subtest: PowerShell：持久降为活动路由会重新物化活动项，失败可恢复原双存储
+ok 29 - PowerShell：持久降为活动路由会重新物化活动项，失败可恢复原双存储
+  ---
+  duration_ms: 1400.7701
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10859.4866

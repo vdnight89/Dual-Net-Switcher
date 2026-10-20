@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": [
+    "default-dark",
+    "instant-toggle-dialog",
+    "reload-remembers",
+    "cross-port-memory",
+    "long-names",
+    "light-surfaces",
+    "compact-both-themes",
+    "blocked-storage-startup",
+    "closed-view",
+    "no-page-errors"
+  ]
+}

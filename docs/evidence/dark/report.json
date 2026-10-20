@@ -1,0 +1,205 @@
+[
+  {
+    "file": "page-1440x900.png",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "nestedCards",
+        "label": "卡片里套卡片",
+        "count": 2,
+        "examples": [
+          "article.port.external「主出口 ✎ 默认公网流量 请选择网卡 以太网 2」（外层 div.network-map）",
+          "article.port.internal「专用出口 ✎ 匹配规则的流量 请选择网卡 以太网」（外层 div.network-map）"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "page-1100x700.png",
+    "state": null,
+    "size": "1100x700",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "nestedCards",
+        "label": "卡片里套卡片",
+        "count": 2,
+        "examples": [
+          "article.port.external「主出口 ✎ 默认公网流量 请选择网卡 以太网 2」（外层 div.network-map）",
+          "article.port.internal「专用出口 ✎ 匹配规则的流量 请选择网卡 以太网」（外层 div.network-map）"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "page-1440x900-@2x.png",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 2,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "nestedCards",
+        "label": "卡片里套卡片",
+        "count": 2,
+        "examples": [
+          "article.port.external「主出口 ✎ 默认公网流量 请选择网卡 以太网 2」（外层 div.network-map）",
+          "article.port.internal「专用出口 ✎ 匹配规则的流量 请选择网卡 以太网」（外层 div.network-map）"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "page-1100x700-@2x.png",
+    "state": null,
+    "size": "1100x700",
+    "zoom": 2,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "nestedCards",
+        "label": "卡片里套卡片",
+        "count": 2,
+        "examples": [
+          "article.port.external「主出口 ✎ 默认公网流量 请选择网卡 以太网 2」（外层 div.network-map）",
+          "article.port.internal「专用出口 ✎ 匹配规则的流量 请选择网卡 以太网」（外层 div.network-map）"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "motion-probe-overview",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "overview",
+    "failed": true,
+    "issues": [
+      "ReferenceError: __oilMotion is not defined\n    at <anonymous>:1:1"
+    ]
+  },
+  {
+    "file": "motion-probe-editor",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "editor",
+    "failed": true,
+    "issues": [
+      "ReferenceError: __oilMotion is not defined\n    at <anonymous>:1:1"
+    ]
+  },
+  {
+    "file": "motion-probe-settings",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "settings",
+    "failed": true,
+    "issues": [
+      "ReferenceError: __oilMotion is not defined\n    at <anonymous>:1:1"
+    ]
+  },
+  {
+    "file": "motion-probe-logs",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "logs",
+    "failed": true,
+    "issues": [
+      "ReferenceError: __oilMotion is not defined\n    at <anonymous>:1:1"
+    ]
+  },
+  {
+    "file": "motion-entry-end.jpg",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "entry",
+    "issues": [],
+    "frames": {
+      "start": {
+        "file": "motion-entry-start.jpg",
+        "source": "Page.screencastFrame",
+        "timeMs": 175
+      },
+      "mid": {
+        "file": "motion-entry-mid.jpg",
+        "source": "Page.screencastFrame",
+        "timeMs": 262
+      },
+      "end": {
+        "file": "motion-entry-end.jpg",
+        "source": "Page.captureScreenshot",
+        "timeMs": 1783
+      }
+    },
+    "sampling": {
+      "mode": "entry"
+    },
+    "durationMs": 1783,
+    "consistency": {
+      "status": "matched",
+      "reference": "motion-entry-end.jpg",
+      "different": false,
+      "changedPixels": 0,
+      "maxTilePixels": 0,
+      "pixelRatio": 0
+    }
+  },
+  {
+    "file": "motion-overview-end.jpg",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "overview",
+    "failed": true,
+    "issues": [
+      "ReferenceError: __oilRecordTiming is not defined\n    at <anonymous>:1:1"
+    ]
+  },
+  {
+    "file": "motion-editor-end.jpg",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "editor",
+    "failed": true,
+    "issues": [
+      "ReferenceError: __oilRecordTiming is not defined\n    at <anonymous>:1:1"
+    ]
+  },
+  {
+    "file": "motion-settings-end.jpg",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "settings",
+    "failed": true,
+    "issues": [
+      "第 1 步「click [data-tab=settings]」：中心点被 dialog#ruleDialog 挡住，动作仍照常执行",
+      "ReferenceError: __oilRecordTiming is not defined\n    at <anonymous>:1:1"
+    ]
+  },
+  {
+    "file": "motion-logs-end.jpg",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "group": "logs",
+    "failed": true,
+    "issues": [
+      "第 1 步「click [data-tab=logs]」：中心点被 dialog#ruleDialog 挡住，动作仍照常执行",
+      "ReferenceError: __oilRecordTiming is not defined\n    at <anonymous>:1:1"
+    ]
+  }
+]

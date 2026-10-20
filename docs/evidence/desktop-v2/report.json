@@ -1,0 +1,60 @@
+[
+  {
+    "file": "page-1440x900.png",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "nestedCards",
+        "label": "卡片里套卡片",
+        "count": 2,
+        "examples": [
+          "article.port.external「主出口 默认公网流量 请选择网卡 以太网 2 W」（外层 div.network-map）",
+          "article.port.internal「专用出口 匹配规则的流量 请选择网卡 以太网 2」（外层 div.network-map）"
+        ]
+      },
+      {
+        "rule": "contrastLow",
+        "label": "文字对比度不达标（正文低于 4.5:1，大字低于 3:1）",
+        "count": 65,
+        "examples": [
+          "small「Dual-Net Switcher」（2.56:1）",
+          "div.nav-caption「工作空间」（2.16:1）",
+          "button.tab「⚙ 网络设置 ›」（3.41:1）"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "page-1100x700.png",
+    "state": null,
+    "size": "1100x700",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "nestedCards",
+        "label": "卡片里套卡片",
+        "count": 2,
+        "examples": [
+          "article.port.external「主出口 默认公网流量 请选择网卡 以太网 2 W」（外层 div.network-map）",
+          "article.port.internal「专用出口 匹配规则的流量 请选择网卡 以太网 2」（外层 div.network-map）"
+        ]
+      },
+      {
+        "rule": "contrastLow",
+        "label": "文字对比度不达标（正文低于 4.5:1，大字低于 3:1）",
+        "count": 65,
+        "examples": [
+          "small「Dual-Net Switcher」（2.56:1）",
+          "div.nav-caption「工作空间」（2.16:1）",
+          "button.tab「⚙ 网络设置 ›」（3.41:1）"
+        ]
+      }
+    ]
+  }
+]

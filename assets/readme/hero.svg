@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">双网卡管家 · Dual-Net Switcher</title>
+  <desc id="hero-desc">Windows 双网卡 IPv4 分流工具：公网默认走有线出口，公司专网走无线；本机将流量分派到两条可命名的出口，预览后应用，可随时恢复。</desc>
+
+  <rect width="1200" height="340" rx="24" fill="#14171e"/>
+  <rect x="0.5" y="0.5" width="1199" height="339" rx="23.5" fill="none" stroke="#2c3442"/>
+
+  <!-- 左侧标题区 -->
+  <g font-family="'Segoe UI','Microsoft YaHei UI','PingFang SC',sans-serif">
+    <text x="64" y="82" font-family="ui-monospace,'Cascadia Code',Consolas,monospace" font-size="17" letter-spacing="3" fill="#97a1b5">WINDOWS PC · DUAL-NIC IPV4 SPLIT ROUTING</text>
+    <text x="62" y="148" font-size="58" font-weight="700" fill="#e9edf4">双网卡管家</text>
+    <text x="64" y="184" font-family="ui-monospace,'Cascadia Code',Consolas,monospace" font-size="20" letter-spacing="5" fill="#4c8dff">DUAL-NET SWITCHER</text>
+    <text x="64" y="232" font-size="21" fill="#c4cbd9">公网默认走有线出口，公司专网走无线；</text>
+    <text x="64" y="264" font-size="21" fill="#c4cbd9">每条业务指定出口，预览后应用，可随时恢复。</text>
+    <text x="64" y="306" font-family="ui-monospace,'Cascadia Code',Consolas,monospace" font-size="16" fill="#97a1b5">Node.js 22+ · 零 npm 依赖 · PowerShell 5.1 · 内置演练模式</text>
+  </g>
+
+  <!-- 右侧：本机 → 双出口拓扑（取自产品界面） -->
+  <g transform="translate(660 26)" font-family="'Segoe UI','Microsoft YaHei UI','PingFang SC',sans-serif">
+    <!-- 连接线 -->
+    <path d="M130 148 C 196 148, 174 56, 240 56" fill="none" stroke="#4c8dff" stroke-width="2.5" opacity="0.85"/>
+    <path d="M130 148 C 196 148, 174 232, 240 232" fill="none" stroke="#3ec2b0" stroke-width="2.5" opacity="0.85"/>
+    <circle cx="130" cy="148" r="4.5" fill="#97a1b5"/>
+    <circle cx="240" cy="56" r="5" fill="#4c8dff"/>
+    <circle cx="240" cy="232" r="5" fill="#3ec2b0"/>
+
+    <!-- 本机节点 -->
+    <g>
+      <rect x="10" y="96" width="120" height="104" rx="14" fill="#1a1f28" stroke="#2c3442"/>
+      <rect x="40" y="116" width="60" height="38" rx="6" fill="none" stroke="#97a1b5" stroke-width="2.5"/>
+      <path d="M58 162 H82 M70 154 V162" stroke="#97a1b5" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="70" y="188" text-anchor="middle" font-size="19" font-weight="600" fill="#e9edf4">本机</text>
+    </g>
+
+    <!-- 主出口卡片 -->
+    <g>
+      <rect x="240" y="8" width="304" height="96" rx="12" fill="#1a1f28" stroke="#2c3442"/>
+      <rect x="240" y="8" width="4" height="96" rx="2" fill="#4c8dff"/>
+      <text x="266" y="44" font-size="21" font-weight="600" fill="#4c8dff">主出口</text>
+      <text x="266" y="70" font-size="18" fill="#97a1b5">默认公网流量</text>
+      <text x="266" y="93" font-family="ui-monospace,'Cascadia Code',Consolas,monospace" font-size="16" fill="#97a1b5">有线网卡 · 192.168.1.1</text>
+    </g>
+
+    <!-- 专用出口卡片 -->
+    <g>
+      <rect x="240" y="184" width="304" height="96" rx="12" fill="#1a1f28" stroke="#2c3442"/>
+      <rect x="240" y="184" width="4" height="96" rx="2" fill="#3ec2b0"/>
+      <text x="266" y="220" font-size="21" font-weight="600" fill="#3ec2b0">专用出口</text>
+      <text x="266" y="246" font-size="18" fill="#97a1b5">匹配规则的流量</text>
+      <text x="266" y="269" font-family="ui-monospace,'Cascadia Code',Consolas,monospace" font-size="16" fill="#97a1b5">无线网卡 · 10.20.0.1</text>
+    </g>
+  </g>
+</svg>
