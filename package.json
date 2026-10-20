@@ -1,6 +1,6 @@
 {
   "name": "dual-net-switcher",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "Windows 双网卡分流管家，无构建、无第三方运行依赖",

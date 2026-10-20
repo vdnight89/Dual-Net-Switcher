@@ -153,8 +153,9 @@ function fillNicSelect(select, selectedId, selectedName) {
   placeholder.value = '';
   select.append(placeholder);
   for (const adapter of adapterList()) {
-    const option = element('option', `${adapter.name}${adapter.up ? '' : ' · 未连接'}`);
+    const option = element('option', `${adapter.name}${adapter.networkName ? ` · ${adapter.networkName}` : ''}${adapter.up ? '' : ' · 未连接'}`);
     option.value = adapter.id;
+    option.title = adapter.networkName ? `网络：${adapter.networkName}` : '';
     select.append(option);
   }
   if (selectedId && !adapterList().some((adapter) => adapter.id === selectedId)) {

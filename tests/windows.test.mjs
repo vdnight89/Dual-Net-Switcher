@@ -24,6 +24,16 @@ test('固定 action 和 JSON 参数，不拼接命令文本', async () => {
   assert.equal(calls.length, 3);
 });
 
+test('默认路由 RouteMetric 0 合法，负数与超大值仍拒绝', async () => {
+  const calls = [];
+  const p = new WindowsPlatform({ dataDir: './test-state', runner: async (script, input) => { calls.push({ script, input }); return { status: 'applied' }; } });
+  const defaultRoute = { prefix: '0.0.0.0/0', interfaceIndex: 15, interfaceId: 'test-guid', gateway: '192.168.1.1', metric: 0, persistent: false };
+  await p.apply({ routes: [defaultRoute, route], nrpt: [], metrics: [] });
+  assert.equal(calls[0].input.plan.routes[0].metric, 0);
+  await assert.rejects(p.apply({ routes: [{ ...defaultRoute, metric: -1 }], nrpt: [], metrics: [] }), /格式无效/);
+  await assert.rejects(p.apply({ routes: [{ ...defaultRoute, metric: 10000 }], nrpt: [], metrics: [] }), /格式无效/);
+});
+
 test('DNS 查询使用指定服务器、源地址和 TTL，失败明确可达性限制', async () => {
   const seen = {};
   const resolver = { setServers(value) { seen.servers = value; }, setLocalAddress(value) { seen.source = value; }, async resolve4(host, options) { seen.host = host; seen.options = options; return [{ address: '10.1.1.1', ttl: 30 }, { address: '10.1.1.1', ttl: 30 }]; } };
