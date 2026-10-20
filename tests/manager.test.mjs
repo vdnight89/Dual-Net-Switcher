@@ -69,6 +69,33 @@ test('reset idempotently clears managed resources but preserves saved rules', as
   assert.equal(manager.config.rules.length, 5);
   assert.equal(JSON.parse(await readFile(join(dataDir, 'runtime.json'), 'utf8')).appliedConfig, null);
 });
+test('restoreAll tears down routing, unregisters the scheduled task and clears runtime while keeping rules', async t => {
+  const { manager, platform, dataDir } = await fixture(t);
+  const startupCalls = [];
+  const original = platform.setStartup.bind(platform);
+  platform.setStartup = async (enabled, mins) => { startupCalls.push(enabled); return original(enabled, mins); };
+  await manager.setStartup(true);
+  await manager.apply((await manager.preview()).id);
+  assert.ok(platform.owned.routes.length > 0);
+  const state = await manager.restoreAll();
+  assert.equal(platform.owned.routes.length, 0);
+  assert.deepEqual(startupCalls, [true, true, false]);
+  assert.equal(state.startup, false);
+  assert.equal(state.applied, false);
+  assert.equal(manager.config.rules.length, 5);
+  const saved = JSON.parse(await readFile(join(dataDir, 'runtime.json'), 'utf8'));
+  assert.equal(saved.appliedConfig, null);
+  assert.equal(saved.startup, false);
+});
+test('restoreAll still clears resources when task unregistration fails, and reports the failure', async t => {
+  const { manager, platform } = await fixture(t);
+  await manager.apply((await manager.preview()).id);
+  platform.setStartup = async () => { throw new Error('unregister denied'); };
+  const state = await manager.restoreAll();
+  assert.equal(platform.owned.routes.length, 0);
+  assert.equal(state.applied, false);
+  assert.ok(state.logs.some(l => l.level === 'warning' && l.message.includes('计划任务')));
+});
 test('corrupt config fails closed rather than overwriting user data', async t => {
   const { dataDir, platform } = await fixture(t);
   await writeFile(join(dataDir, 'config.json'), '{bad');

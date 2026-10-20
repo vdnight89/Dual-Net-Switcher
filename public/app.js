@@ -133,9 +133,10 @@ async function action(task, errorTarget) {
 }
 function updateAvailability() {
   const unavailable = !state || busy;
-  for (const id of ['previewButton', 'resetButton', 'addRule', 'importButton', 'exportButton', 'refreshButton']) $(id).disabled = unavailable;
+  for (const id of ['previewButton', 'resetButton', 'restoreAllButton', 'addRule', 'importButton', 'exportButton', 'refreshButton']) $(id).disabled = unavailable;
   const readOnly = state && !state.demo && !state.system?.admin;
   $('resetButton').disabled = unavailable || readOnly;
+  $('restoreAllButton').disabled = unavailable || readOnly;
   $('startup').disabled = unavailable || readOnly;
   $('settingsForm').querySelector('button[type=submit]').disabled = unavailable;
   $('exitButton').disabled = busy || sessionEnded;
@@ -526,6 +527,9 @@ $('confirmApply').addEventListener('click', () => { void action(async () => {
 }, 'previewError'); });
 $('resetButton').addEventListener('click', () => confirm('恢复工具修改的系统设置？', '仅撤销本工具拥有且未被其他程序修改的路由、DNS 分流和接口跃点，并保留你的规则配置。已有系统与用户路由不会被清空。', '确认恢复', async () => {
   applyState(await api('/api/reset', 'POST', {})); activePlan = null; toast(state.demo ? '演练恢复完成，真实系统未改变' : '恢复操作完成，请查看结果记录');
+}));
+$('restoreAllButton').addEventListener('click', () => confirm('一键还原到未使用本工具的状态？', '将撤销本工具做过的全部系统修改：分流路由、域名解析策略、接口跃点，并注销后台维护计划任务。规则列表与网络设置会保留，随时可以重新应用。', '全部还原', async () => {
+  applyState(await api('/api/restore-all', 'POST', {})); activePlan = null; toast(state.demo ? '演练还原完成，真实系统未改变' : '已还原到初始状态，请查看操作记录');
 }));
 function markSettingsDirty(event) {
   if (event.target.id === 'startup') return;

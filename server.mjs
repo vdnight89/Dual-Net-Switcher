@@ -62,6 +62,7 @@ export function createApp({ manager, token, elevate, exit }) {
         case 'POST /api/preview': result = await manager.preview(); break;
         case 'POST /api/apply': result = await manager.apply(input.planId); break;
         case 'POST /api/reset': result = await manager.reset(); break;
+        case 'POST /api/restore-all': result = await manager.restoreAll(); break;
         case 'POST /api/refresh': result = await manager.refresh(); break;
         case 'POST /api/startup': result = await manager.setStartup(input.enabled); break;
         case 'POST /api/elevate':
