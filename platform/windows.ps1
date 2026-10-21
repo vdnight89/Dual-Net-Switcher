@@ -109,11 +109,13 @@ function Write-Resource($keyResource, $target) {
         $len = [int]$parts[1]
         $maskInt = (-1 -shl (32 - $len)) -band 0xFFFFFFFF
         $mask = '{0}.{1}.{2}.{3}' -f (($maskInt -shr 24) -band 255), (($maskInt -shr 16) -band 255), (($maskInt -shr 8) -band 255), ($maskInt -band 255)
-        $stdoutFile = Join-Path $env:TEMP 'dualnet-route-stdout.txt'
-        $stderrFile = Join-Path $env:TEMP 'dualnet-route-stderr.txt'
-        $proc = Start-Process -FilePath 'route.exe' -ArgumentList @('-p', 'add', $parts[0], 'mask', $mask, [string]$target.gateway, 'metric', [string]$target.metric, 'if', [string]$index) -WindowStyle Hidden -Wait -PassThru -RedirectStandardOutput $stdoutFile -RedirectStandardError $stderrFile
-        $routeOutput = [string](Get-Content -LiteralPath $stdoutFile -Raw -ErrorAction SilentlyContinue) + [string](Get-Content -LiteralPath $stderrFile -Raw -ErrorAction SilentlyContinue)
-        if ($proc.ExitCode -ne 0 -or $routeOutput -match '失败|错误|fail|error') { throw "route.exe 持久路由写入失败（exit $($proc.ExitCode)）：$($target.prefix)" }
+        # Invoke in-process instead of Start-Process: Start-Process creates the
+        # console window before applying -WindowStyle Hidden, which shows a brief
+        # flash on every maintenance re-apply. The in-process call runs inside
+        # this already-hidden host. route.exe reports failure text but exits 0,
+        # so the output is checked in addition to the exit code.
+        $routeOutput = [string]((& route.exe -p add $parts[0] mask $mask ([string]$target.gateway) metric ([string]$target.metric) if ([string]$index)) 2>&1 | Out-String)
+        if ($LASTEXITCODE -ne 0 -or $routeOutput -match '失败|错误|fail|error') { throw "route.exe 持久路由写入失败（exit $LASTEXITCODE）：$($target.prefix)" }
         break
       }
       if ($null -ne $current -and $null -ne $target) {

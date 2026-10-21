@@ -104,3 +104,7 @@ npm run check 通过；scripts/verify-ui.mjs 连续三次通过，增加实际�
 新增"一键还原"（applybar 危险色按钮 → /api/restore-all → manager.restoreAll）：先在磁盘置维护暂停（防计划任务中途抢跑），再注销后台计划任务、执行资源恢复、清空 applied/startup/resolutions 运行时；注销失败不阻断资源恢复并给出警告日志。与既有"恢复系统设置"的区别：后者保留计划任务与自动维护，仅撤销网络资源；一键还原是完整的"回到未使用本工具"状态。两者均保留规则库。
 
 单元测试 +2（正常链路含 apply 后 commit 重注册任务的调用序列断言、注销失败降级）；npm test 32/32，verify:ui 3/3。实机验证：真实系统应用态（7 路由 + 2 NRPT + 计划任务 + 持久存储）执行一键还原后全部清零、内网目标回到不可达、有线公网不受影响、规则保留 4 条；随后重新应用 + 重新注册任务，业务恢复（btos 200 / oa 302 / baidu 200）。
+
+## 2026-10-20 v1.2.1：消除后台维护的窗口闪烁
+
+用户反馈"时不时弹出 PowerShell 窗口随即关闭"。排查整条后台链（计划任务→maintenance.ps1→node→windows.ps1）：任务动作与维护包装均为隐藏 + 同步调用，node 侧 spawn 均带 windowsHide；唯一会新建控制台窗口的是持久路由写入用的 `Start-Process route.exe -WindowStyle Hidden`——Start-Process 对控制台程序先创建窗口再隐藏，必闪；WLAN 频繁掉线触发重应用使其高频出现。改为 `& route.exe ... 2>&1` 进程内调用（本就在隐藏宿主内，零新窗口），退出码与输出失败文本检测保留。周期路径不再含任何 Start-Process。npm test 32/32；实机 reset+重应用验证持久路由正常写入、业务恢复。
