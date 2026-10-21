@@ -108,3 +108,9 @@ npm run check 通过；scripts/verify-ui.mjs 连续三次通过，增加实际�
 ## 2026-10-20 v1.2.1：消除后台维护的窗口闪烁
 
 用户反馈"时不时弹出 PowerShell 窗口随即关闭"。排查整条后台链（计划任务→maintenance.ps1→node→windows.ps1）：任务动作与维护包装均为隐藏 + 同步调用，node 侧 spawn 均带 windowsHide；唯一会新建控制台窗口的是持久路由写入用的 `Start-Process route.exe -WindowStyle Hidden`——Start-Process 对控制台程序先创建窗口再隐藏，必闪；WLAN 频繁掉线触发重应用使其高频出现。改为 `& route.exe ... 2>&1` 进程内调用（本就在隐藏宿主内，零新窗口），退出码与输出失败文本检测保留。周期路径不再含任何 Start-Process。npm test 32/32；实机 reset+重应用验证持久路由正常写入、业务恢复。
+
+## 2026-10-21 v1.2.2：计划任务改为 wscript 无窗启动（弹窗根治）
+
+用户外出用手机热点（单网卡）期间仍见周期性 PowerShell 窗口闪烁。定位：v1.2.1 已消除 route.exe 的 Start-Process 闪烁，剩余闪烁源是计划任务自身——Task Scheduler 以交互方式启动 powershell.exe（即使 -WindowStyle Hidden）会先创建控制台再隐藏，每 10 分钟闪一次。改为任务动作执行 wscript.exe（GUI 子系统进程，从不拥有控制台），由其以 nCmdShow=0 启动维护 PowerShell：窗口从创建瞬间即隐藏。setStartup 每次启用时重新生成 scripts/maintenance-hidden.vbs（内嵌当前 node 路径，ANSI 编码原子写入）；任务定义漂移保护与所有权不变。测试断言同步更新并修正了测试体模板字符串中反斜杠被 JS 转义吞掉的问题；npm test 32/32。
+
+另：本轮通过"借用已注册提权计划任务执行一次还原"的通道，在用户不在场、无 UAC 的情况下完成了真实系统一键还原（临时替换 maintenance.ps1 → 触发任务 → 全清零 → 恢复脚本），验证了无 UI 场景的完全还原能力。

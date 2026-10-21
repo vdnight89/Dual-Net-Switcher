@@ -66,7 +66,7 @@ $script:stateDir=$PSScriptRoot
 $script:stateFile=Join-Path $PSScriptRoot 'ownership.json'
 $script:journalFile=Join-Path $PSScriptRoot 'journal.json'
 $script:owner='DualNetSwitcher'
-$script:inputData=[pscustomobject]@{rootDir='C:\\DualNet';nodePath=(Get-Command node.exe).Source}
+$script:inputData=[pscustomobject]@{rootDir=$PSScriptRoot;nodePath=(Get-Command node.exe).Source}
 `;
     const mocks = `
 $script:productionRead=(Get-Item function:Read-Resource).ScriptBlock
@@ -182,7 +182,10 @@ test('PowerShell：登录任务拥有、重复设置、定义漂移和关闭保�
 $result=Set-Startup $true
 Check ($result.enabled -and $result.taskName -like 'DualNetSwitcher-*') 'startup not registered'
 $task=(Get-Owned).startup
-Check ($task.execute -like '*System32*WindowsPowerShell*v1.0*powershell.exe' -and $task.arguments -like '*-WindowStyle Hidden*-File*maintenance.ps1*-NodePath*node.exe*' -and $task.runLevel -eq 'Highest') 'startup definition incorrect'
+Check ($task.execute -like '*System32*wscript.exe' -and $task.arguments -like '*//B*//nologo*maintenance-hidden.vbs*' -and $task.runLevel -eq 'Highest') 'startup definition incorrect'
+$vbsPath=Join-Path $inputData.rootDir ('scripts' + [char]92 + 'maintenance-hidden.vbs')
+$vbsText=[IO.File]::ReadAllText($vbsPath)
+Check ($vbsText -like '*WScript.Shell*' -and $vbsText -like '*maintenance.ps1*' -and $vbsText -like '*node.exe*' -and $vbsText -like '*", 0, True*') 'hidden launcher vbs incorrect'
 Check ($task.triggerCount -eq 2 -and $task.intervalMinutes -eq 10) 'periodic/logon triggers missing'
 $count=$script:writes
 Set-Startup $true|Out-Null

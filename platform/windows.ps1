@@ -366,10 +366,24 @@ function Set-Startup($enabled, $intervalMinutes=10) {
   try{$hash=([BitConverter]::ToString($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes($inputData.rootDir.ToLowerInvariant())))).Replace('-','').Substring(0,12)}finally{$sha.Dispose()}
   $name="DualNetSwitcher-$hash"
   $sid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value
-  $powerShellPath=Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+  $wscriptPath=Join-Path $env:SystemRoot 'System32\wscript.exe'
   $maintenancePath=Join-Path $inputData.rootDir 'scripts\maintenance.ps1'
-  $maintenanceArguments='-NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File "'+$maintenancePath+'" -NodePath "'+$inputData.nodePath+'"'
-  $desired=[pscustomobject][ordered]@{kind='startup';name=$name;execute=$powerShellPath;arguments=$maintenanceArguments;directory=[string]$inputData.rootDir;user=$sid;runLevel='Highest';logonType='Interactive';triggerUser=$sid;triggerTypes=@('MSFT_TaskLogonTrigger','MSFT_TaskTimeTrigger');intervalMinutes=[int]$intervalMinutes;actionCount=1;triggerCount=2;description="DualNetSwitcher owned startup: $hash";xml=''}
+  $vbsPath=Join-Path $inputData.rootDir 'scripts\maintenance-hidden.vbs'
+  # Task Scheduler starting powershell.exe -WindowStyle Hidden still shows a brief
+  # console flash on interactive logons (the window is created before Hidden is
+  # applied). wscript is a GUI-subsystem process that never owns a console, and
+  # it starts the maintenance powershell with nCmdShow=0, so nothing is ever
+  # visible. The VBS embeds the node path so it is regenerated on every enable.
+  $hiddenCommand='powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File "'+$maintenancePath+'" -NodePath "'+$inputData.nodePath+'"'
+  $vbsContent='CreateObject("WScript.Shell").Run "'+($hiddenCommand -replace '"','""')+'", 0, True'
+  $vbsDir=Split-Path -Parent $vbsPath
+  if(!(Test-Path -LiteralPath $vbsDir)){New-Item -ItemType Directory -Path $vbsDir -Force|Out-Null}
+  $vbsTemp="$vbsPath.tmp"
+  $vbsBytes=[Text.Encoding]::Default.GetBytes($vbsContent+"`r`n")
+  $vbsStream=[IO.File]::Open($vbsTemp,[IO.FileMode]::Create,[IO.FileAccess]::Write,[IO.FileShare]::None)
+  try{$vbsStream.Write($vbsBytes,0,$vbsBytes.Length);$vbsStream.Flush($true)}finally{$vbsStream.Dispose()}
+  if(Test-Path -LiteralPath $vbsPath){[IO.File]::Replace($vbsTemp,$vbsPath,"$vbsPath.bak",$true);Remove-Item -LiteralPath "$vbsPath.bak" -ErrorAction SilentlyContinue}else{[IO.File]::Move($vbsTemp,$vbsPath)}
+  $desired=[pscustomobject][ordered]@{kind='startup';name=$name;execute=$wscriptPath;arguments='//B //nologo "'+$vbsPath+'"';directory=[string]$inputData.rootDir;user=$sid;runLevel='Highest';logonType='Interactive';triggerUser=$sid;triggerTypes=@('MSFT_TaskLogonTrigger','MSFT_TaskTimeTrigger');intervalMinutes=[int]$intervalMinutes;actionCount=1;triggerCount=2;description="DualNetSwitcher owned startup: $hash";xml=''}
   $actual=Read-Resource $desired
   if($actual -and !$owned.startup){throw 'STARTUP_CONFLICT：同名登录任务没有本工具所有权记录，拒绝覆盖'}
   if($owned.startup -and !(Same $actual $owned.startup)){throw 'OWNERSHIP_DRIFT：登录任务定义已被修改，拒绝覆盖或删除'}
